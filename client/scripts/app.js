@@ -2,7 +2,7 @@ var app = {
 
   server: 'http://parse.sfm8.hackreactor.com/chatterbox/classes/messages',
 
-  currRoomName: '4chan',
+  currRoomName: 'default',
 
   init: function (data) {
   //**************************
@@ -65,6 +65,17 @@ var app = {
     var room = $(`<option value=${roomName}></option>`)
     $(room).text(`${roomName}`);
     $('#roomSelect').append(room);
+  },
+
+  handleSubmit: function() {
+    var message = {};
+    var user = window.location.search.slice(10);
+    message.username = user;
+    message.text = $('.input').val();
+    message.roomname = app.currRoomName;
+    app.send(message);
+    $('.input').val('');
+    app.renderMessage(message);  
   }
 };
 
@@ -74,6 +85,11 @@ $(document).ready(function() {
     app.currRoomName = $('#roomSelect').val();
     app.fetch();
   })
+
+  $('.submit').on('click', function() {
+    app.handleSubmit();
+  })
+
 });
 
 // $(document).ready(function() {
