@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>chatterbox</title>
     <link rel="stylesheet" href="styles/styles.css">
-
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Shrikhand" rel="stylesheet">
     <!-- dependencies -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/underscore/underscore.js"></script>
@@ -25,16 +25,18 @@
   </head>
   <body>
     <div id="main">
-      <h1>chatterbox</h1>
+      <h1>Chatterbox</h1>
       <!-- Your HTML goes here! -->
-      <input type='text' class='input' placeholder="New Message">
-      <button type='button' class='submit'>Submit</button>
+      <form method='post' class='submit' id='send'>
+        <input type='text' class='input' placeholder="New Message">
+        <input type='submit' class='submit'>
+      </form>
       <select id='roomSelect'>
         <option value = 'default'>Default</option>
       </select>
       
     </div>
-    <div id="chats">
+    <div id="chat">
          
         
 

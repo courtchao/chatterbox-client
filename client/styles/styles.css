@@ -1,23 +1,27 @@
 body {
-    background: #eee;
+/*    background: #eee;*/
     text-align: center;
     padding: 0 25px;
-    font-family: arial, sans-serif;
+    font-family: Montserrat, sans-serif;
+}
+
+html {
+    background-color: #83677B;
 }
 
 #main, #chats {
     width: 500px;
     margin: auto;
     text-align: left;
-    background: white;
+    background: #64485C;
     padding: 50px 60px;
-    border: solid #ddd;
     border-width: 0 1px 1px 1px;
+    border-radius: 20px;
 }
 
 #main h1 {
     margin-top: 0;
-    font-size: 35px;
+    font-size: 50px;
     margin-bottom: 5px;
     padding: 5px;
 }
@@ -60,9 +64,16 @@ form input[type=text] {
 }
 
 .chat {
-    padding: 5px;
-    margin-bottom: 5px;
-    background-color: #eee;
+  /*padding: 5px;
+  margin-bottom: 5px;*/
+  position: relative;
+  background-color: #64485C;
+  width: 50%;
+  border-radius: 10px 30px 30px;
+  border: 8px inset: maroon;
+  padding: 20px;
+  margin: auto;
+  text-align: center; 
 }
 
 .chat .username {
@@ -84,8 +95,22 @@ form input[type=text] {
 }
 
 .friend {
+/*    font-size: 100px;*/
     font-weight: bold;
     color: #fff;
-    background-color: #0090da;
+/*    background-color: #0090da;*/
 }
+
+h1 {
+  font-family: 'Shrikhand', cursive;
+}
+
+.submit {
+  cursor: pointer;
+  border-radius: 30px;
+  background: linear-gradient(#501B1D, #ADADAD)
+}
+
+
+
 
