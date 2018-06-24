@@ -74,6 +74,7 @@ form input[type=text] {
   padding: 20px;
   margin: auto;
   text-align: center; 
+  color: #ADADAD;
 }
 
 .chat .username {

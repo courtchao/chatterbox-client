@@ -4,6 +4,8 @@ var app = {
 
   currRoomName: 'default',
 
+  friends: [],
+
   init: function (data) {
   //**************************
   //**************************
@@ -17,7 +19,10 @@ var app = {
 
     $('#chat').click(this.handleUsernameClick.bind(this));
     
+    $('.roomSubmit').on('click', this.handleNewRoom.bind(this));
+    
     setInterval(this.fetch.bind(this), 1000);
+    
   },
 
   send: function(message) {
@@ -53,6 +58,14 @@ var app = {
         for (var obj of filteredList) {
           app.renderMessage(obj);
         }
+        
+        var roomList = messageList.map(function(item) {
+          return item.roomname;
+        });
+        var uniqueRooms = _.uniq(roomList);
+        for (var rooms of uniqueRooms) {
+          app.renderRoom(rooms);
+        }
       },
       error: function (data) {
         console.error('chatterbox: Failed to send message', data);
@@ -63,7 +76,8 @@ var app = {
   renderMessage: function(message) {
     var element = $('<div class="chat"></div>');
     var username = `<span class='username'> ${message.username}</span>`;
-    $(element).append(`${username}: ${message.text}`);
+    var text = `<span class='text'> ${message.text}</span>`;
+    $(element).append(`${username}: ${text}`);
 
     $('#chat').append(element);
   },
@@ -74,8 +88,6 @@ var app = {
   },
 
   renderRoom: function(roomName) {
-    //when "New room..." in selector is chosen be able to add a new room to dropdown list
-    // 
     var room = $(`<option value=${roomName}></option>`);
     $(room).text(`${roomName}`);
     $('#roomSelect').append(room);
@@ -95,27 +107,16 @@ var app = {
 
   handleUsernameClick: function() {
     var user = window.location.search.slice(10);
-    $('.chat').addClass('friend');
+    $('.text').toggleClass('friend');
+  },
+  
+  handleNewRoom: function(e) {
+    var newRoom = $('.newRoomText').val();
+    this.renderRoom(newRoom);
+    $('.newRoomText').val('');    
   }
 };
 
 $(document).ready(function() {
   app.init();
-
 });
-
-// $(document).ready(function() {
-
-//   $('.messages').on('click', function () {
-//     $(`.${message.username}`).toggleClass('.friend');
-//   })  
-
-//   $('#roomSelect').change(function() {
-
-// // })
-// });
-//})
-//toggleClass friend
-
-
-

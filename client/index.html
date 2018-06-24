@@ -27,10 +27,19 @@
     <div id="main">
       <h1>Chatterbox</h1>
       <!-- Your HTML goes here! -->
-      <form method='post' class='submit' id='send'>
-        <input type='text' class='input' placeholder="New Message">
-        <input type='submit' class='submit'>
-      </form>
+      <div id='messageSubmit'>
+        <form method='post' class='submit' id='send'>
+          <input type='text' class='input' placeholder="New Message...">
+          <input type='submit' class='submit'>
+        </form>
+    </div>
+      <!-- NewRoom Creator -->
+      <!-- text with button, on button click add text.val to select dropdown -->
+      <div id='newRoomSubmit'>
+          <input type='text' class='newRoomText' placeholder="New Room...">
+          <button type='button' class='roomSubmit'>Submit</button>
+      </div>
+      
       <select id='roomSelect'>
         <option value = 'default'>Default</option>
       </select>
